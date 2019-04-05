@@ -2,7 +2,7 @@
 
 include_once 'pelicula.php';
 
-// clase encargada de las funcionalidades de la Appi
+// clase encargada de las funcionalidades de la API
 class ApiPeliculas{
 
     private $error;
@@ -59,6 +59,7 @@ class ApiPeliculas{
         }
     }
 
+    //Aniade una película
     function add($item){
         $pelicula = new Pelicula();
 
@@ -66,11 +67,17 @@ class ApiPeliculas{
         $this->exito('Nueva pelicula registrada');
     }
 
+    //Elimina una película
+    function delete($id){
+    
+    }
 
+    //Mensaje de error
     function error($mensaje){
         echo '<code>' . json_encode(array('mensaje' => $mensaje)) . '</code>'; 
     }
 
+    //Mensaje de exito o tarea completada
     function exito($mensaje){
         echo '<code>' . json_encode(array('mensaje' => $mensaje)) . '</code>'; 
     }
@@ -79,6 +86,7 @@ class ApiPeliculas{
         echo '<code>'.json_encode($array).'</code>';
     }
 
+    //Sube una imagen a una película
     function subirImagen($file){
         $directorio = "imagenes/";
 
