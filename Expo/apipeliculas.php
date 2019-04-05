@@ -2,12 +2,14 @@
 
 include_once 'pelicula.php';
 
+// clase encargada de las funcionalidades de la Appi
 class ApiPeliculas{
 
     private $error;
     private $imagen;
 
 
+    //Trae todas las peliculas de la bd
     function getAll(){
         $pelicula = new Pelicula();
         $peliculas = array();

@@ -1,11 +1,11 @@
 <?php
 
 include_once 'db.php';
-
+//funcionalidades de una pelicula 
 class Pelicula extends DB{
     
     function obtenerPeliculas(){
-        $query = $this->connect()->query('SELECT * FROM pelicula');
+        $query = $this->connect()->query('SELECT * FROM pelicula'); //Obtiene objetos de la bd
         return $query;
     }
 
