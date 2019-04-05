@@ -13,12 +13,13 @@ class ApiPeliculas{
     function getAll(){
         $pelicula = new Pelicula();
         $peliculas = array();
-        $peliculas["items"] = array();
+        $peliculas["items"] = array(); //ARREGLO QUE ALMACENARA LAS PELICULAS
 
         $res = $pelicula->obtenerPeliculas();
 
+        //valida que existan elementos
         if($res->rowCount()){
-            while ($row = $res->fetch(PDO::FETCH_ASSOC)){
+            while ($row = $res->fetch(PDO::FETCH_ASSOC)){ //Almacena en variable Row cada elemento de respuesta
     
                 $item=array(
                     "id" => $row['id'],
@@ -28,12 +29,14 @@ class ApiPeliculas{
                 array_push($peliculas["items"], $item);
             }
         
+            //Guarda en json arreglo de peliculas
             $this->printJSON($peliculas);
         }else{
             $this->error('No hay elementos');
         }
     }
 
+    //Trae un elemento especifico de la bd
     function getById($id){
         $pelicula = new Pelicula();
         $peliculas = array();

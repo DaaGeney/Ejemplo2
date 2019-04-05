@@ -10,7 +10,7 @@ class Pelicula extends DB{
     }
 
     function obtenerPelicula($id){
-        $query = $this->connect()->prepare('SELECT * FROM pelicula WHERE id = :id');
+        $query = $this->connect()->prepare('SELECT * FROM pelicula WHERE id = :id'); // busca una pelicula en espedifico en la bd
         $query->execute(['id' => $id]);
         return $query;
     }
