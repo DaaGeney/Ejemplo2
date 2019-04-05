@@ -13,6 +13,7 @@
                 'nombre' => $_POST['nombre'],
                 'imagen' => $api->getImagen()
             );
+            
             $api->add($item);
         }else{
             $api->error('Error con el archivo: ' . $api->getError());
